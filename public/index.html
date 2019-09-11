@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" ng-app="MyApp" ng-controller="MyController as ctrl">
+<head>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.8/angular.min.js" charset="utf-8"></script>
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+  <script src="/js/app.js" charset="utf-8"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Indie+Flower|Nunito|Oswald|Oxygen&display=swap" rel="stylesheet">
+  <link rel="shortcut icon" type="image/jpeg" href="assets/favicon.jpeg">
+  <link rel="stylesheet" href="main.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <script src='https://kit.fontawesome.com/a076d05399.js'></script>
+  <script src='https://kit.fontawesome.com/a076d05399.js'></script>
+  <meta charset="utf-8">
+  <title></title>
+</head>
+
+<body>
+  <header>
+
+    <nav>
+      <ul>
+
+        <li id="login" class="openModal">login</li>
+        <li id="logout" ng-click="ctrl.logOut()">logout</li>
+        <li ng-if="ctrl.loggedInUsername" id="welcome">Welcome,  {{ctrl.loggedInUsername}}!</li>
+      </ul>
+    </nav>
+
+  </header>
+  <div ng-if="!ctrl.loggedInUsername" id="modal">
+    <div id="modal-textbox">
+        <form ng-submit="ctrl.createUser()">
+          <input type="text" ng-model="ctrl.createUsername" placeholder="username"/>
+          <input type="password" ng-model="ctrl.createPassword" placeholder="password"/>
+          <input type="submit" value="Create User">
+        </form>
+        <form ng-submit="ctrl.logIn()" >
+          <input type="text" ng-model="ctrl.username" placeholder="username">
+          <input type="password" ng-model="ctrl.password" placeholder="password">
+          <input type="submit" value="Log In" >
+        </form>
+      <div class="modal-footer">
+        <a id="close" class="modal-buttons">Close</a>
+      </div>
+    </div>
+  </div>
+  <div class="section">
+
+    <form ng-submit="ctrl.addSound()" ng-if="ctrl.loggedInUsername">
+      <input type="text"
+      ng-model="ctrl.name" placeholder="name"/>
+      <input type="text"
+      ng-model="ctrl.image" placeholder="pics"/>
+      <textarea type="text"
+      ng-model="ctrl.description"  rows="10" cols="80"/></textarea>
+
+      <input type="submit"
+      value="share"/>
+    </form>
+
+    <div class="video-container">
+      <div class="color-overlay"></div>
+      <video autoplay loop muted>
+        <source src="assets/.mp4" type="video/mp4">
+        </video>
+      </div>
+
+    </div>
+    <div class="search">
+      <input type="text" ng-model="searchBar"/>
+    </div>
+    <ul>
+      <li
+      ng-repeat="sound in ctrl.sounds | filter: searchBar">
+      <div class="bar"></div>
+      <div class="card">
+        <div class="sidebar"><img src="{{sound.image}}" alt="image"></div>
+        <div class="text">
+
+            <h3>{{sound.name}}</h3>
+            <h4>{{sound.description}}</h4>
+            <h4>{{sound.comment}}</h4>
+            <a href="#" ng-click="ctrl.deleteSound(sound)" ng-if="ctrl.loggedInUsername">
+              <i class='fas'>&#xf2ed;</i>
+            </a>
+            <textarea type="text"
+            ng-model="ctrl.comment" placeholder="what do you think?" rows="10" cols="80"/></textarea>
+          </form>
+            <a ng-if="ctrl.loggedInUsername"
+          ng-if="$index !== ctrl.indexOfEditFormToShow"
+          href="#"
+          ng-click="ctrl.indexOfEditFormToShow = $index" >
+        <i class='fas fa-pen'> </i>
+          </a>
+          <form ng-if="$index === ctrl.indexOfEditFormToShow" ng-submit="ctrl.editSound(sound);" ng-if="ctrl.loggedInUsername">
+            <input type="text"
+            ng-model="ctrl.updatedSoundDescription" placeholder="description" />
+            <input type="submit" value="Update">
+          <!-- <a href="#"><i class="material-icons" class="heart">favorite</i></a> -->
+
+        </div>
+      </div>
+    </li>
+  </ul>
+</body>
+<footer>
+  <ul>
+
+  </ul>
+</footer>
+</html>

@@ -3,7 +3,7 @@
 // ================
 const express = require('express');
 const router = express.Router();
-const Cities = require('../models/cities.js');
+const Sounds = require('../models/sounds.js');
 const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
 // ================

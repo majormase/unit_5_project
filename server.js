@@ -36,7 +36,7 @@ app.use('/users', userController);
 const sessionsController = require('./controllers/sessions.js');
 app.use('/sessions', sessionsController);
 // Error / success
-mongoose.connect(PROJECT3_DB, {useNewUrlParser:true});
+mongoose.connect(PROJECT5_DB, {useNewUrlParser:true});
 mongoose.connection.once('open', () => {
   console.log('connected to mongoose...');
 })
