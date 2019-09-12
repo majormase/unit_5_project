@@ -84,8 +84,6 @@
             <a href="#" ng-click="ctrl.deleteSound(sound)" ng-if="ctrl.loggedInUsername">
               <i class='fas'>&#xf2ed;</i>
             </a>
-            <textarea type="text"
-            ng-model="ctrl.comment" placeholder="what do you think?" rows="10" cols="80"/></textarea>
           </form>
             <a ng-if="ctrl.loggedInUsername"
           ng-if="$index !== ctrl.indexOfEditFormToShow"
@@ -97,6 +95,8 @@
             <input type="text"
             ng-model="ctrl.updatedSoundDescription" placeholder="description" />
             <input type="submit" value="Update">
+            <textarea type="text"
+            ng-model="ctrl.comment" placeholder="what do you think?" rows="10" cols="80"/></textarea>
           <!-- <a href="#"><i class="material-icons" class="heart">favorite</i></a> -->
 
         </div>

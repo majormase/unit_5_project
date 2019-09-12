@@ -27,7 +27,7 @@ app.use(session({
 // app.use(express.urlencoded({ extended: false }));
 app.use(express.static('public'));
 
-const PROJECT5_DB = process.env.PROJECT5_DB
+const MONGODB_URI = process.env.MONGODB_URI
 
 const citiesController = require('./controllers/sounds.js');
 app.use('/sounds', citiesController);
@@ -36,12 +36,12 @@ app.use('/users', userController);
 const sessionsController = require('./controllers/sessions.js');
 app.use('/sessions', sessionsController);
 // Error / success
-mongoose.connect(PROJECT5_DB, {useNewUrlParser:true});
+mongoose.connect(MONGODB_URI, {useNewUrlParser:true});
 mongoose.connection.once('open', () => {
   console.log('connected to mongoose...');
 })
 db.on('error', (err) => console.log(err.message + ' is Mongod not running?'));
-db.on('connected', () => console.log('mongo connected: ', PROJECT5_DB));
+db.on('connected', () => console.log('mongo connected: ', MONGODB_URI));
 db.on('disconnected', () => console.log('mongo disconnected'));
 app.listen(PORT, () => {
   console.log('listening');
