@@ -5,12 +5,24 @@
   <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
   <script src="/js/app.js" charset="utf-8"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
-  <link href="https://fonts.googleapis.com/css?family=Indie+Flower|Nunito|Oswald|Oxygen&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Poiret+One&display=swap" rel="stylesheet">
   <link rel="shortcut icon" type="image/jpeg" href="assets/favicon.jpeg">
   <link rel="stylesheet" href="main.css">
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
   <script src='https://kit.fontawesome.com/a076d05399.js'></script>
   <script src='https://kit.fontawesome.com/a076d05399.js'></script>
+  <script src="https://code.iconify.design/1/1.0.3/iconify.min.js"></script>
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:300,300italic,700,700italic">
+
+
+<link rel="stylesheet" href="//cdn.rawgit.com/necolas/normalize.css/master/normalize.css">
+
+
+<link rel="stylesheet" href="//cdn.rawgit.com/milligram/milligram/master/dist/milligram.min.css">
+
+
+
   <meta charset="utf-8">
   <title></title>
 </head>
@@ -25,6 +37,12 @@
         <li id="logout" ng-click="ctrl.logOut()">logout</li>
         <li ng-if="ctrl.loggedInUsername" id="welcome">Welcome,  {{ctrl.loggedInUsername}}!</li>
       </ul>
+      <div class="search">
+        <input type="text" ng-model="searchBar"/>
+        <span id="icon" class="iconify" data-icon="entypo-magnifying-glass" data-inline="false" style="transform: translate(935px);"></span>
+
+      </div>
+
     </nav>
 
   </header>
@@ -45,6 +63,9 @@
       </div>
     </div>
   </div>
+
+
+
   <div class="section">
 
     <form ng-submit="ctrl.addSound()" ng-if="ctrl.loggedInUsername">
@@ -52,23 +73,18 @@
       ng-model="ctrl.name" placeholder="name"/>
       <input type="text"
       ng-model="ctrl.image" placeholder="pics"/>
+      <input type="text"
+      ng-model="ctrl.link" placeholder="link"/>
       <textarea type="text"
       ng-model="ctrl.description"  rows="10" cols="80"/></textarea>
 
       <input type="submit"
       value="share"/>
     </form>
-
-    <div class="video-container">
-      <div class="color-overlay"></div>
-      <video autoplay loop muted>
-        <source src="assets/.mp4" type="video/mp4">
-        </video>
-      </div>
-
     </div>
-    <div class="search">
-      <input type="text" ng-model="searchBar"/>
+    <div class="logo">
+      <h1 ng-if="!ctrl.loggedInUsername">musiqspectr</h1>
+      <h4 ng-if="!ctrl.loggedInUsername">listen. rate. enjoy.</h4>
     </div>
     <ul>
       <li
@@ -79,6 +95,7 @@
         <div class="text">
 
             <h3>{{sound.name}}</h3>
+            <a href="{{sound.link}}">listen here</a>
             <h4>{{sound.description}}</h4>
             <h4>{{sound.comment}}</h4>
             <a href="#" ng-click="ctrl.deleteSound(sound)" ng-if="ctrl.loggedInUsername">
@@ -94,9 +111,10 @@
           <form ng-if="$index === ctrl.indexOfEditFormToShow" ng-submit="ctrl.editSound(sound);" ng-if="ctrl.loggedInUsername">
             <input type="text"
             ng-model="ctrl.updatedSoundDescription" placeholder="description" />
-            <input type="submit" value="Update">
+            <input type="submit" value="Update" class="button button-outline">
             <textarea type="text"
             ng-model="ctrl.comment" placeholder="what do you think?" rows="10" cols="80"/></textarea>
+            <input type="submit" value="Comment" class="button button-outline">
           <!-- <a href="#"><i class="material-icons" class="heart">favorite</i></a> -->
 
         </div>
