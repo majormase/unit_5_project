@@ -61,8 +61,8 @@ header li:hover {
 }
 
 .search input[type="text"] {
-  width: 20%;
-  height: 22px;
+  width: 10%;
+  height: 20px;
   font-size: 17px;
   border: 1px solid black;
   transition: 0.2s ease-in-out;
@@ -93,7 +93,7 @@ header li:hover {
 }
 
 #modal-textbox {
-	height: 370px;
+	height: 500px;
 	width: 550px;
 	border-radius: 2px;
 	margin: 150px auto;
@@ -127,16 +127,11 @@ header li:hover {
 
 input[type="submit"] {
   font-family: 'Helvetica';
-  background-color: black;
-  color: white;
-  width: 100%;
-  height: 25px;
 }
 input[type="text"] {
   width: 100%;
-  height: 15px;
   font-family: 'Helvetica';
-  font-size: 10px;
+
   color: black;
   background-color: white;
   border: 1px solid black;
@@ -149,11 +144,25 @@ input[type="text"] {
 }
 input[type="password"] {
   width: 100%;
-  height: 15px;
   font-family: 'Helvetica';
-  font-size: 10px;
+
   color: black;
-  border: 1px;
+  background-color: white;
+  border: 1px solid black;
+  transition: 0.2s ease-in-out;
+  border-radius: 8px;
+  outline: none;
+  margin-top: 10px;
+  font-size: 12px;
+  opacity: .7;
+}
+textarea {
+  width: 100%;
+  font-family: 'Helvetica';
+
+  color: black;
+  background-color: white;
+  border: 1px solid black;
   transition: 0.2s ease-in-out;
   border-radius: 8px;
   outline: none;
@@ -197,7 +206,6 @@ body {
 
 
 .logo h1 {
-  all: unset;
   font-size: 50px;
   font-family: 'Poiret One', cursive;
   display: flex;
@@ -246,6 +254,7 @@ body {
   padding: 15px;
   box-sizing: border-box;
   overflow: auto;
+  margin-left: 20px;
 }
 h3 {
   all: unset;
@@ -266,6 +275,17 @@ h4 {
   font-size: 1.3em;
   margin-top: 10px;
 }
+
+h5 {
+  all: unset;
+  color: black;
+  font-family: 'Poiret One', cursive;
+  font-weight: 400;
+  display: flex;
+  justify-content: flex-start;
+  font-size: 1em;
+  margin-top: 10px;
+}
 a {
   all: unset;
   font-family: 'Poiret One', cursive;
@@ -275,13 +295,14 @@ a {
   justify-content: flex-start;
   font-size: 1.3em;
   margin-top: 10px;
+  cursor: pointer;
 }
 
 
 li img {
   all: unset;
   width: 100%;
-  border-radius: 10px 0 0 10px;
+  border-radius: 10px 10px 10px 10px;
 }
 
 i {
@@ -291,6 +312,7 @@ i {
   margin-right: 30px;
   cursor: pointer;
   color: black;
+  opacity: .7;
 
 }
 

@@ -7,7 +7,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
   <link href="https://fonts.googleapis.com/css?family=Poiret+One&display=swap" rel="stylesheet">
   <link rel="shortcut icon" type="image/jpeg" href="assets/favicon.jpeg">
-  <link rel="stylesheet" href="main.css">
+
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 
   <script src='https://kit.fontawesome.com/a076d05399.js'></script>
@@ -20,6 +20,7 @@
 
 
 <link rel="stylesheet" href="//cdn.rawgit.com/milligram/milligram/master/dist/milligram.min.css">
+  <link rel="stylesheet" href="main.css">
 
 
 
@@ -76,7 +77,7 @@
       <input type="text"
       ng-model="ctrl.link" placeholder="link"/>
       <textarea type="text"
-      ng-model="ctrl.description"  rows="10" cols="80"/></textarea>
+      ng-model="ctrl.description" placeholder="description" rows="10" cols="80"/></textarea>
 
       <input type="submit"
       value="share"/>
@@ -96,12 +97,12 @@
 
             <h3>{{sound.name}}</h3>
             <a href="{{sound.link}}">listen here</a>
-            <h4>{{sound.description}}</h4>
-            <h4>{{sound.comment}}</h4>
+            <h4>{{sound.description}}</h5>
+            <h5>  {{ctrl.loggedInUsername}} said... </h5>
+            <h5>{{sound.comment}}</h5>
             <a href="#" ng-click="ctrl.deleteSound(sound)" ng-if="ctrl.loggedInUsername">
               <i class='fas'>&#xf2ed;</i>
             </a>
-          </form>
             <a ng-if="ctrl.loggedInUsername"
           ng-if="$index !== ctrl.indexOfEditFormToShow"
           href="#"
@@ -112,9 +113,10 @@
             <input type="text"
             ng-model="ctrl.updatedSoundDescription" placeholder="description" />
             <input type="submit" value="Update" class="button button-outline">
-            <textarea type="text"
-            ng-model="ctrl.comment" placeholder="what do you think?" rows="10" cols="80"/></textarea>
-            <input type="submit" value="Comment" class="button button-outline">
+              <textarea type="text"
+              ng-model="ctrl.updatedSoundComment" placeholder="what do you think?" rows="10" cols="80"/></textarea>
+              <input type="submit" value="Comment" class="button button-outline">
+            </form>
           <!-- <a href="#"><i class="material-icons" class="heart">favorite</i></a> -->
 
         </div>

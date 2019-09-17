@@ -65,6 +65,7 @@ app.controller('MyController', ['$http', function($http){
       data: {
         name: this.name,
         description: this.description,
+        link: this.link,
         image: this.image,
         comment: this.comment
       }
@@ -72,6 +73,7 @@ app.controller('MyController', ['$http', function($http){
       controller.getSounds();
       controller.name = null;
       controller.description = null;
+      controller.link = null;
       controller.image = null;
       controller.comment = null;
       // console.log(response);
