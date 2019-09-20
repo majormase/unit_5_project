@@ -301,7 +301,8 @@ a {
 
 li img {
   all: unset;
-  width: 100%;
+  width: 410px;
+  height: 410px;
   border-radius: 10px 10px 10px 10px;
 }
 

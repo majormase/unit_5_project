@@ -57,7 +57,7 @@ app.controller('MyController', ['$http', function($http){
   // =====================
   //      Sounds
   // =====================
-  // Add Post
+
   this.addSound = function(){
     $http({
       method: 'POST',
@@ -81,7 +81,7 @@ app.controller('MyController', ['$http', function($http){
       console.log(error);
     });
   };
-  // Get Posts
+
   this.getSounds = function(){
     $http({
       method: 'GET',

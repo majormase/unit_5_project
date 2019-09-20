@@ -29,7 +29,7 @@ app.use(express.static('public'));
 
 const MONGODB_URI = process.env.MONGODB_URI
 
-const citiesController = require('./controllers/sounds.js');
+const soundsController = require('./controllers/sounds.js');
 app.use('/sounds', citiesController);
 const userController = require('./controllers/users.js');
 app.use('/users', userController);
